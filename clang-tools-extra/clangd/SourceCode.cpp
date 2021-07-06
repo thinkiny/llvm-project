@@ -528,6 +528,7 @@ llvm::Optional<std::string> getCanonicalPath(const FileEntry *F,
     }
   }
 
+  return FilePath.str().str();
   // Handle the symbolic link path case where the current working directory
   // (getCurrentWorkingDirectory) is a symlink. We always want to the real
   // file path (instead of the symlink path) for the  C++ symbols.

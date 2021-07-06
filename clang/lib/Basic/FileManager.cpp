@@ -614,6 +614,7 @@ void FileManager::GetUniqueIDMapping(
 }
 
 StringRef FileManager::getCanonicalName(const DirectoryEntry *Dir) {
+  return Dir->getName();
   llvm::DenseMap<const void *, llvm::StringRef>::iterator Known
     = CanonicalNames.find(Dir);
   if (Known != CanonicalNames.end())
@@ -630,6 +631,7 @@ StringRef FileManager::getCanonicalName(const DirectoryEntry *Dir) {
 }
 
 StringRef FileManager::getCanonicalName(const FileEntry *File) {
+  return File->getName();
   llvm::DenseMap<const void *, llvm::StringRef>::iterator Known
     = CanonicalNames.find(File);
   if (Known != CanonicalNames.end())
